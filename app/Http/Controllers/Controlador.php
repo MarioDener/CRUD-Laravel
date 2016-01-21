@@ -28,6 +28,7 @@ class Controlador extends Controller
     public function create()
     {
         //
+        return view('contacto.create');
     }
 
     /**
@@ -39,6 +40,15 @@ class Controlador extends Controller
     public function store(Request $request)
     {
         //
+        $contacto = new Contacto;
+        $contacto->usuario = $request->get('usuario');
+        $contacto->nombre = $request->get('usuario');
+        $contacto->apellido = $request->get('apellido');
+        $contacto->telefono = $request->get('telefono');
+        $contacto->email = $request->get('email');
+        if ($contacto->save()) {
+          return redirect()->route('home_path');
+        }
     }
 
     /**
@@ -50,6 +60,9 @@ class Controlador extends Controller
     public function show($id)
     {
         //
+        $contacto = Contacto::findOrFail($id);
+        $data['contacto'] = $contacto;
+        return view('contacto.edit',$data);
     }
 
     /**
@@ -84,5 +97,8 @@ class Controlador extends Controller
     public function destroy($id)
     {
         //
+        $contacto = Contacto::find($id);
+        $contacto->delete();
+        return redirect()->route('home_path');
     }
 }

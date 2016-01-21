@@ -12,10 +12,35 @@
 */
 
 
-Route::get('/','Controlador@index');
-Route::get('contactos/crear','Controlador@create');
-Route::get('contactos/editar','Controlador@edit');
-Route::get('contactos/eliminar','Controlador@destroy');
+Route::get('/',[
+  'uses'  =>  'Controlador@index',
+  'as'  =>  'home_path'
+]);
+
+Route::get('contactos/crear',[
+  'uses'  =>  'Controlador@create',
+  'as'  =>  'get_contactos_create'
+]);
+
+Route::post('contactos/crear',[
+  'uses'  =>  'Controlador@store',
+  'as'  =>  'post_contactos_create'
+]);
+
+Route::get('contactos/editar/{id}',[
+  'uses' => 'Controlador@show',
+  'as' => 'get_contactos_edit'
+])->where('id','[0-9]+');
+
+Route::post('contactos/editar/{id}',[
+  'uses' => 'Controlador@update',
+  'as' => 'post_contactos_edit'
+])->where('id','[0-9]+');
+
+Route::get('contactos/eliminar/{id}',[
+  'uses'  =>  'Controlador@destroy',
+  'as'  =>  'get_contactos_delete'
+])->where('id','[0-9]+');
 
 /*
 |--------------------------------------------------------------------------
