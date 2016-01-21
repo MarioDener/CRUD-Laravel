@@ -3,7 +3,7 @@
 namespace nameproject\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use nameproject\Contacto;
 use nameproject\Http\Requests;
 use nameproject\Http\Controllers\Controller;
 
@@ -16,7 +16,8 @@ class Controlador extends Controller
      */
     public function index()
     {
-        return view('contacto.show');
+      $contactos['contactos'] = Contacto::all();
+      return view('contacto.show',$contactos);
     }
 
     /**
