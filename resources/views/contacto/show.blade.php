@@ -10,6 +10,7 @@
       <th>Nombre</th>
       <th>Apellido</th>
       <th>E-mail</th>
+      <th>Telefono</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -21,6 +22,7 @@
       <td>{{$contacto->nombre}}</td>
       <td>{{$contacto->apellido}}</td>
       <td>{{$contacto->email}}</td>
+      <td>{{$contacto->telefono}}</td>
       <td class="text-center">
         <a class="btn btn-default" href="{{route("get_contactos_edit",$contacto->id)}}">Editar</a>
         <a class="btn btn-danger" href="{{route('get_contactos_delete',$contacto->id)}}">Eliminar</a>

@@ -86,6 +86,15 @@ class Controlador extends Controller
     public function update(Request $request, $id)
     {
         //
+        $contacto = Contacto::findOrFail($id);
+        $contacto->usuario = $request->get('usuario');
+        $contacto->nombre = $request->get('usuario');
+        $contacto->apellido = $request->get('apellido');
+        $contacto->telefono = $request->get('telefono');
+        $contacto->email = $request->get('email');
+        if ($contacto->save()) {
+          return redirect()->route('home_path');
+        }
     }
 
     /**

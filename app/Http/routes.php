@@ -32,7 +32,7 @@ Route::get('contactos/editar/{id}',[
   'as' => 'get_contactos_edit'
 ])->where('id','[0-9]+');
 
-Route::post('contactos/editar/{id}',[
+Route::patch('contactos/editar/{id}',[
   'uses' => 'Controlador@update',
   'as' => 'post_contactos_edit'
 ])->where('id','[0-9]+');
