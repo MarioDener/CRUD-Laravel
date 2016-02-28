@@ -20,6 +20,13 @@ class Controlador extends Controller
       return view('contacto.show',$contactos);
     }
 
+    public function showApi()
+    {
+      # codigo para la api de usuarios que me mostrarn en la aplicacion la lista de contactos
+      $contactos['contactos'] = Contacto::all();
+      echo json_encode($contactos);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

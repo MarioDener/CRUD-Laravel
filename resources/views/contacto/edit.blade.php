@@ -1,12 +1,12 @@
 @extends('layouts.default')
 
 @section('content')
-<h1>Editar Contacto
+<h2>Editar Contacto
   @if(isset($contacto))
   de
   {{$contacto->usuario}}
   @endif
-</h1>
+</h2>
 
 <form action="{{route('post_contactos_edit',$contacto->id)}}" method="post">
 {{ csrf_field() }}

@@ -17,6 +17,11 @@ Route::get('/',[
   'as'  =>  'home_path'
 ]);
 
+Route::get('/Api/Contactos',[
+  'uses'  => 'Controlador@showApi',
+  'as'  =>  'api_contactos'
+]);
+
 Route::get('contactos/crear',[
   'uses'  =>  'Controlador@create',
   'as'  =>  'get_contactos_create'

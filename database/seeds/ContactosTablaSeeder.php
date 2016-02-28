@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use nameproject\Contacto;
+use nameproject\User;
 
 class ContactosTablaSeeder extends Seeder
 {
@@ -13,6 +14,8 @@ class ContactosTablaSeeder extends Seeder
     public function run()
     {
       Contacto::truncate();
+      User::truncate();
       factory(nameproject\Contacto::class,30)->create();
+      factory(nameproject\User::class,10)->create();
     }
 }
