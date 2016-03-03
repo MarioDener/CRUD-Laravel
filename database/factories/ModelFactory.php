@@ -30,3 +30,17 @@ $factory->define(nameproject\User::class, function(Faker\Generator $faker) {
     'remember_token' => str_random(10),
   ];
 });
+
+$factory->define(nameproject\Telefonos::class, function(Faker\Generator $faker){
+  return[
+    'Telefono'=> '29384928',
+  ];
+});
+
+
+$factory->define(nameproject\DetalleTelefono::class, function(Faker\Generator $faker){
+  return[
+    'idContacto'=> rand(1,30),
+    'idTelefono'=> rand(1,30),
+  ];
+});

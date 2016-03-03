@@ -4,8 +4,8 @@ namespace nameproject;
 
 use Illuminate\Database\Eloquent\Model;
 
-class telefonos extends Model
+class Telefonos extends Model
 {
     //
-    protected $table = 'telefonos';
+    // protected $table = 'telefonos';
 }
