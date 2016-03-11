@@ -4,6 +4,8 @@ namespace nameproject\Http\Controllers;
 
 use Illuminate\Http\Request;
 use nameproject\Contacto;
+use nameproject\Telefonos;
+use nameproject\DetalleTelefono;
 use nameproject\Http\Requests;
 use nameproject\Http\Controllers\Controller;
 
@@ -47,14 +49,27 @@ class Controlador extends Controller
     public function store(Request $request)
     {
         //
-        $contacto = new Contacto;
+        $contacto = new Contacto();
         $contacto->usuario = $request->get('usuario');
         $contacto->nombre = $request->get('usuario');
         $contacto->apellido = $request->get('apellido');
-        $contacto->telefono = $request->get('telefono');
+        // $contacto->telefono = $request->get('telefono');
         $contacto->email = $request->get('email');
         if ($contacto->save()) {
-          return redirect()->route('home_path');
+          $idcontacto = $contacto->id;
+          $telefono = new Telefonos();
+          $telefono->Telefono = $request->get('telefono');
+          if ($telefono->save()) {
+            # code...
+            $idtelefono=$telefono->id;
+            $detelefono = new DetalleTelefono();
+            $detelefono->idTelefono = $idtelefono;
+            $detelefono->idContacto = $idcontacto;
+            if ($detelefono->save()) {
+              # code...
+              return redirect()->route('home_path');
+            }
+          }
         }
     }
 

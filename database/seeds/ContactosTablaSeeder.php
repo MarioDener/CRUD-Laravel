@@ -16,12 +16,12 @@ class ContactosTablaSeeder extends Seeder
      public function run()
      {
       User::truncate();
-      // Contacto::truncate();
-      // Telefonos::truncate();
-      // DetalleTelefono::truncate();
+      DetalleTelefono::truncate();
       factory(nameproject\Contacto::class,30)->create();
       factory(nameproject\Telefonos::class,30)->create();
       factory(nameproject\User::class,10)->create();
       factory(nameproject\DetalleTelefono::class,30)->create();
+      // Telefonos::truncate();
+      // Contacto::truncate();
     }
 }

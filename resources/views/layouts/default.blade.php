@@ -16,6 +16,7 @@
           <ul class="nav nav-pills">
             <li><a href="/">Inicio</a></li>
             <li><a href="{{route('get_contactos_create')}}">Crear</a></li>
+            <li><a href="{{route('get_contactos_create')}}">Registro con Facebook</a></li>
             <li><a href="#">Salir</a></li>
           </ul>
         </div>
